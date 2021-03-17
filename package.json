@@ -1,0 +1,26 @@
+{
+  "name": "crud-nodexpressmongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisYagof/CRUD-nodexpressmongo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuisYagof/CRUD-nodexpressmongo/issues"
+  },
+  "homepage": "https://github.com/LuisYagof/CRUD-nodexpressmongo#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.5",
+    "node": "^15.10.0",
+    "nodemon": "^2.0.7"
+  }
+}
