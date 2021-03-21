@@ -1,0 +1,6 @@
+npm init
+npm i node
+npm i mongodb
+npm i dotenv
+npm i nodemon
+npm i express

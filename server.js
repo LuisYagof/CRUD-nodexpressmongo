@@ -4,8 +4,6 @@ const MongoClient = require('mongodb').MongoClient
 const MONGOdb = process.env.MONGO
 const optionsMongo = { useNewUrlParser: true, useUnifiedTopology: true } 
 
-// { useUnifiedTopology: true } ???? 
-
 const server =  express()
 const listenPort = process.env.PORT || 8080;
 
@@ -65,22 +63,21 @@ server.post('/books/create', async (req, res) => {
 })
 
 // -----------------------------------------PETICIÓN DELETE
-// ***** NO FUNCIONA CON QUERY PARAMS. SÓLO QUERYSTRINGS
 
-// server.delete('/books/delete/:id', (req, res) => {
-//     let deleted = req.params.id
-//     console.log(deleted);
-//     MongoClient.connect(MONGOdb, optionsMongo, (err, db) => {
-//         if (err) throw err;
-//         db.db("CRUDapp")
-//             .collection("books")
-//             .deleteOne({_id: deleted}, (err, result) => {
-//                 if (err) throw err;
-//                 res.send("Book was deleted correctly")
-//                 db.close();
-//             });
-//     })
-// })
+server.delete('/books/delete/:id', (req, res) => {
+    let deleted = Number(req.params.id)
+    console.log(deleted);
+    MongoClient.connect(MONGOdb, optionsMongo, (err, db) => {
+        if (err) throw err;
+        db.db("CRUDapp")
+            .collection("books")
+            .deleteOne({_id: deleted}, (err, result) => {
+                if (err) throw err;
+                res.send("Book was deleted correctly")
+                db.close();
+            });
+    })
+})
 
 server.delete('/books/delete', (req, res) => {
     console.log(req.query);
